@@ -2,14 +2,44 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Noty</title>
+    <link rel="stylesheet" href="app/style.css" type="text/css">
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+
+    <div class="container">
+      <table id="statistics">
+        <tbody>
+          <tr>
+            <th class="text-statistics-label">Lines</th>
+            <td class="text-statistics" id="line-count">0</td>
+            <th class="text-statistics-label">Words</th>
+            <td class="text-statistics" id="word-count">0</td>
+            <th class="text-statistics-label">Reading Time</th>
+            <td class="text-statistics" id="reading-time">0 min</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <textarea id="content"></textarea>
+
+      <section id="controls">
+        <button id="open-file" class="control-button">
+          Open
+        </button>
+        <button id="save-file" class="control-button">
+          Save
+        </button>
+        <button id="copy-to-clipboard" class="control-button">
+          Copy to clipboard
+        </button>
+      </section>
+    </div>
+
   </body>
+  <script>
+    require('./renderer.js');
+  </script>
 </html>
+
